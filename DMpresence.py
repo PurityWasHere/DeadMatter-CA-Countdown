@@ -6,7 +6,7 @@ def GetTime():
     Hours = str(delta).split(",")[1].split(":")[0].strip(" ")
     Minutes = str(delta).split(",")[1].split(":")[1].strip(" ")
     Seconds = str(delta).split(",")[1].split(":")[2].strip(" ").split(".")[0]
-    return(Days + "D " +Hours+"H " + Minutes + "M " + Seconds + "S Until Release")
+    return('{}D {}H {}M {}S till launch'.format(Days,Hours,Minutes,Seconds))
 
 client_id = "739833131862851596"
 RPC = Presence(client_id=client_id)
