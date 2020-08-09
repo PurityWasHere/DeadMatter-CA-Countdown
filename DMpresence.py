@@ -1,17 +1,19 @@
 from pypresence import Presence
-import datetime,time
+from datetime import datetime
+from time import sleep
+
 def GetTime():
-    delta = datetime.datetime(2020, 8, 20) - datetime.datetime.now()
-    Days = str(delta).split(" ")[0]
-    Hours = str(delta).split(",")[1].split(":")[0].strip(" ")
-    Minutes = str(delta).split(",")[1].split(":")[1].strip(" ")
-    Seconds = str(delta).split(",")[1].split(":")[2].strip(" ").split(".")[0]
-    return('{}D {}H {}M {}S till launch'.format(Days,Hours,Minutes,Seconds))
+    Datetill = str((datetime(2020, 8, 20, 0, 0, 0) - datetime.utcnow()))
+    Days = Datetill.split("days")[0].strip(" ")
+    Hours = Datetill.split(":")[0].split("days,")[1].strip(" ")
+    Minutes = Datetill.split(":")[1]
+    Seconds = Datetill.split(":")[2].split(".")[0]
+    return('{}D {}H {}M {}S until launch'.format(Days,Hours,Minutes,Seconds))
 
 client_id = "739833131862851596"
 RPC = Presence(client_id=client_id)
 RPC.connect()
 print('Connected To Discord.')
 while 1:
-    RPC.update(large_image="dm" ,large_text="Waiting for Release",details = GetTime())
-    time.sleep(30)
+    RPC.update(large_image="dm" ,large_text="Using UTC Global Time",details = GetTime())
+    sleep(30)
