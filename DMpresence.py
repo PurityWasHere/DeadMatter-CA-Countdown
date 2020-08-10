@@ -3,7 +3,7 @@ from datetime import datetime
 from time import sleep
 
 def GetTime():
-    Datetill = str((datetime(2020, 8, 20, 0, 0, 0) - datetime.utcnow()))
+    Datetill = str((datetime(2020, 8, 20, 1, 0, 0) - datetime.utcnow()))
     Days = Datetill.split("days")[0].strip(" ")
     Hours = Datetill.split(":")[0].split("days,")[1].strip(" ")
     Minutes = Datetill.split(":")[1]
